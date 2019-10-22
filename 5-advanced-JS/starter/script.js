@@ -33,12 +33,17 @@
 //
 //jane.calculateAge();
 
-function interviewQuestion(job) {
-    return function(job) {
-        console.log('What does being a ' + job + ' entail?');
-    }
-}
+//function interviewQuestion(job) {
+//    return function(job) {
+//        console.log('What does being a ' + job + ' entail?');
+//    }
+//}
+//
+//const job = 'Manager';
+//var quest = interviewQuestion(job);
+//quest(job);
 
-const job = 'Manager';
-var quest = interviewQuestion(job);
-quest(job);
+(function(goodLuck) {
+    var score = Math.random() * 10;
+    console.log(score >= (5 - goodLuck));
+})(3);
