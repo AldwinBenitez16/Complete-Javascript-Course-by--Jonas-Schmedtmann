@@ -125,6 +125,7 @@ var UIController = (function() {
                 value: parseFloat(document.querySelector(DOMstrings.inputValue).value)
             }
         },
+        
         addListItem: function(obj, type) {
             var html, newHtml, element;
             
@@ -141,6 +142,13 @@ var UIController = (function() {
             newHtml = newHtml.replace('%description%', obj.description);
             newHtml = newHtml.replace('%value%', obj.value);
             document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);
+            
+        },
+        
+        deleteListItem: function(selectorID) {
+            
+            var el = document.getElementById(selectorID);
+            el.parentNode.removeChild(el);
             
         },
         
@@ -234,6 +242,10 @@ var controller = (function(budgetCtrl, UICtrl) {
             ID = parseInt(splitID[1]);
             
             budgetCtrl.deleteItem(type, ID);
+            
+            UICtrl.deleteListItem(itemID);
+            
+            updateBudget();
             
         }
         
