@@ -144,6 +144,26 @@ var UIController = (function() {
         expensesPercLabel: '.item__percentage'
     };
     
+    var formatNumber = function(num, type) {
+        var numSplit, int, dec;
+
+        num = Math.abs(num);
+        num = num.toFixed(2);
+
+        numSplit = num.split('.');
+
+        int = numSplit[0];
+
+        if(int.length > 3) {
+            int = int.substr(0 , int.length -3) + ',' + int.substr(int.length -3, int.length);
+        }
+
+        dec = numSplit[1];
+
+        return (type === 'exp' ? '-' : '+') + ' ' + int + '.' + dec;
+
+    }
+    
     return {
         getinput: function() {
             return {
@@ -167,7 +187,7 @@ var UIController = (function() {
             
             newHtml = html.replace('%id%', obj.id);
             newHtml = newHtml.replace('%description%', obj.description);
-            newHtml = newHtml.replace('%value%', obj.value);
+            newHtml = newHtml.replace('%value%', formatNumber(obj.value, type));
             document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);
             
         },
@@ -205,12 +225,19 @@ var UIController = (function() {
             };
             
             nodeListForEach(fields, function(curr, i) {
-                
+                if(percentages[i] > 0) {
+                    curr.textContent = percentages[i] + '%';
+                } else {
+                    curr.textContent = '---';
+                }
             });
             
         },
         
         displayBudget: function(obj) {
+            var type;
+            obj.budget > 0 ? type
+            
             
             document.querySelector(DOMstrings.budgetLabel).textContent = obj.budget;
             document.querySelector(DOMstrings.incomeLabel).textContent = obj.totalInc;
@@ -264,7 +291,7 @@ var controller = (function(budgetCtrl, UICtrl) {
         
         var percentages = budgetCtrl.getPercentages();
         
-        console.log(percentages);
+        UICtrl.displayPercentages(percentages);
     }
     
     var ctrlAddItem = function() {
