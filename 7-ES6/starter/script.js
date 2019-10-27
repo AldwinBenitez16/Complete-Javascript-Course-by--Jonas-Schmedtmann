@@ -100,5 +100,8 @@ var ages = [12, 17, 8, 21, 14, 11];
 //});
 //console.log(full);
 
+console.log(ages.findIndex(cur => cur >= 18));
+console.log(ages.find(cur => cur >= 18));
+
 
 
