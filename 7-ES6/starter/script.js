@@ -60,24 +60,45 @@
 //new Person('John').myFriends5(friends);
 
 // ES6
-const [name, age] = ['John', 26];
-console.log(name);
-console.log(age);
+//const [name, age] = ['John', 26];
+//console.log(name);
+//console.log(age);
+//
+//const obj = {
+//    firstName: 'John',
+//    lastName: 'Smith'
+//};
+//
+//const { firstName, lastName } = obj;
+//console.log(firstName);
+//console.log(lastName);
+//
+//const {firstName: a, lastName: b} = obj;
+//
+//console.log(a);
+//console.log(b);
 
-const obj = {
-    firstName: 'John',
-    lastName: 'Smith'
-};
+// ES6
 
-const { firstName, lastName } = obj;
-console.log(firstName);
-console.log(lastName);
+const boxes = document.querySelectorAll('.box');
+//Array.from(boxes).forEach(cur => cur.style.backgroundColor = 'dodgerblue');
 
-const {firstName: a, lastName: b} = obj;
+const boxesArr6 = Array.from(boxes);
+boxesArr6.forEach(cur => cur.style.backgroundColor = 'dodgerblue');
 
-console.log(a);
-console.log(b);
+for (const cur of boxesArr6) {
+    if(cur.className === 'box blue') {
+        continue;
+    }
+    cur.textContent = 'I changed to blue!';
+}
 
+var ages = [12, 17, 8, 21, 14, 11];
+
+//var full = ages.map(function(cur) {
+//    return cur >= 18;
+//});
+//console.log(full);
 
 
 
