@@ -80,28 +80,8 @@
 
 // ES6
 
-const boxes = document.querySelectorAll('.box');
-//Array.from(boxes).forEach(cur => cur.style.backgroundColor = 'dodgerblue');
+const h = document.querySelector('h1');
+const boxes = document.querySelectorAll(.box);
+const all = [h, ...boxes];
 
-const boxesArr6 = Array.from(boxes);
-boxesArr6.forEach(cur => cur.style.backgroundColor = 'dodgerblue');
-
-for (const cur of boxesArr6) {
-    if(cur.className === 'box blue') {
-        continue;
-    }
-    cur.textContent = 'I changed to blue!';
-}
-
-var ages = [12, 17, 8, 21, 14, 11];
-
-//var full = ages.map(function(cur) {
-//    return cur >= 18;
-//});
-//console.log(full);
-
-console.log(ages.findIndex(cur => cur >= 18));
-console.log(ages.find(cur => cur >= 18));
-
-
-
+Array.from(all).forEach(cur => cur.style.color = 'purple');
