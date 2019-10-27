@@ -8,20 +8,36 @@
 //
 //console.log(c);
 
-// Strings
+//// Strings
+//
+//let firstName = 'John';
+//let lastName = 'Smith';
+//const yearOfBirth = 1990;
+//
+//function calcAge(year) {
+//    return 2019 - year;
+//}
+//
+//// ES6
+//
+//const n = `${firstName} ${lastName}`;
+//console.log(n.startsWith('j'));
+//console.log(n.endsWith('th'));
+//console.log(n.includes(' '));
+//console.log(firstName.repeat(5));
 
-let firstName = 'John';
-let lastName = 'Smith';
-const yearOfBirth = 1990;
+//ES6
 
-function calcAge(year) {
-    return 2019 - year;
+const box6 = {
+    color: 'green',
+    position: 1,
+    clickMe: function() {
+        
+        document.querySelector('.green').addEventListener('click', () => {
+            
+            var str = 'This is box number ' + this.position + ' and it is ' + this.color;
+            alert(str);
+        });
+    }
 }
-
-// ES6
-
-const n = `${firstName} ${lastName}`;
-console.log(n.startsWith('j'));
-console.log(n.endsWith('th'));
-console.log(n.includes(' '));
-console.log(firstName.repeat(5));
+box6.clickMe();
