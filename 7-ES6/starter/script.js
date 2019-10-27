@@ -101,10 +101,10 @@ question.set(false, 'Wrong, please try again!');
 
 console.log(question.get('question'));
 
-if(question.has(4)) {
-//    question.delete(4);
-    console.log('Answer 4 is here');
-}
+//if(question.has(4)) {
+////    question.delete(4);
+//    console.log('Answer 4 is here');
+//}
 
 //question.clear();
 
@@ -112,9 +112,12 @@ if(question.has(4)) {
 //    console.log(`This is ${key}, and it's set to ${value}`);
 //});
 
-//for(let [key, value] of question.entries()) {
-//    
-//}
+for(let [key, value] of question.entries()) {
+    if(typeof(key) === 'number') {
+        console.log(`Answer ${key}: ${value}`);
+    }
+}
 
-
+const ans = parseInt(prompt('Write the correct answer'));
+console.log(question.get(ans === question.get('correct')));
 
