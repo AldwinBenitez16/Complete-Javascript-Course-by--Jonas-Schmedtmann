@@ -123,38 +123,59 @@
 
 // ES5
 //
-//var person5 = function(name, yearOfBirth, job) {
-//    this.name = name;
-//    this.yearOfBirth = yearOfBirth;
-//    this.job = job;
-//}
-//
-//person5.prototype.calculateAge = function() {
-//    var age = new Date().getFullYear() - this.yearOfBirth;
-//    console.log(age);
-//}
-//
+var person5 = function(name, yearOfBirth, job) {
+    this.name = name;
+    this.yearOfBirth = yearOfBirth;
+    this.job = job;
+}
+
+person5.prototype.calculateAge = function() {
+    var age = new Date().getFullYear() - this.yearOfBirth;
+    console.log(age);
+}
+
+// Created a new prototype by connecting the person5 prototype
+var Athlete5 = function(name, yearOfBirth, job, olympicGames, medals) {
+    
+    person5.call(this, name, yearOfBirth, job); // create a person in this prototype
+    this.olympicGames = olympicGames; // it is also a prototype
+    this.medals = medals;
+
+};
+
+// We make Athlete5 use the person5 prototype
+Athlete5.prototype = Object.create(person5.prototype);
+
+Athlete5.prototype.wonMedal = function() {
+    this.medals++;
+    console.log(this.medals);
+}
+
+var johnAthlete5 = new Athlete5('John', 1990, 'swimmer', 3, 10);
+
+johnAthlete5.wonMedal();
+
 //var john5 = new person5('John', 1990, 'teacher');
 
 // ES6
 
-class Person6 {
-    constructor (name, yearOFBirth, job) {
-        this.name = name;
-        this.yearOfBirth = yearOFBirth;
-        this.job = job;
-    } 
-    
-    calculateAge() {
-        var age = new Date().getFullYear() - this.yearOfBirth;
-        console.log(age);
-    }
-    
-    static greeting() {
-        console.log('Hey there!');
-    }
-}
-
-const john6 = new Person6('John', 1990, 'teacher');
-
-Person6.greeting();
+//class Person6 {
+//    constructor (name, yearOFBirth, job) {
+//        this.name = name;
+//        this.yearOfBirth = yearOFBirth;
+//        this.job = job;
+//    } 
+//    
+//    calculateAge() {
+//        var age = new Date().getFullYear() - this.yearOfBirth;
+//        console.log(age);
+//    }
+//    
+//    static greeting() {
+//        console.log('Hey there!');
+//    }
+//}
+//
+//const john6 = new Person6('John', 1990, 'teacher');
+//
+//Person6.greeting();
