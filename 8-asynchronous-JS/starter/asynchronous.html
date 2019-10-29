@@ -81,7 +81,7 @@
         });
     }
 
-    getIDs
+    /* getIDs
     .then(IDs => {
         console.log(IDs);
         return getRecipe(IDs[2]);
@@ -95,7 +95,34 @@
     })
     .catch(err => {
         console.log(err);
-    }); 
+    }); */
+
+    /* async function getRecipesAW() {
+        const IDs = await getIDs;
+        console.log(IDs);
+        const recipe = await getRecipe(IDs[2]);
+        console.log(recipe);
+        const related = await getRelated(recipe.publisher);
+        console.log(related);
+
+        return related;
+    }
+    getRecipesAW()
+    .then(res => {
+        console.log(`${res} is the best ever!`);
+    }); */
+
+    fetch('https://crossorigin.me/https://www.metaweather.com/api/location/44418/')
+    .then(res => {
+        console.log(res);
+        return result.json();
+    })
+    .then(data => {
+        console.log(data);
+    })
+    .catch(err => {
+        console.log(err);
+    });
     
     </script>
 </body>
