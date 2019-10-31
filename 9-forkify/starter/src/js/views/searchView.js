@@ -43,6 +43,17 @@ const renderRecipe = recipe => {
     elements.searchResList.insertAdjacentHTML("beforeend",markup);
 };
 
+const renderButtons = (page, numResults, resPerPage) => {
+    const pages = Math.ceil(numResults / resPerPage);
+
+    if(page === 1 && pages > 1) {
+        // Only Button to go to next page
+    }  else if(page < pages) {
+        // Both buttons
+    } else if (page === pages && pages > 1) {
+        // Only Button to go to previous page
+    }
+};
 
 export const renderResults = (recipes, page = 1, resPerPage = 10) => {
     const start = (page -1) * resPerPage;
