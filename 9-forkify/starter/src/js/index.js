@@ -17,11 +17,12 @@ const controlSearch = async () => {
 
         // 3) Prepare UI for results
 
+
         // 4) Search for recipes
         await state.search.getResults();
 
         // 5) render results on UI
-        console.log(state.search.result);
+        searchView.renderResults(state.search.result);
     }
 }
 
