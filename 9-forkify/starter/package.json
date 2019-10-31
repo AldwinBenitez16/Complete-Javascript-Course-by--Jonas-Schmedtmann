@@ -11,8 +11,8 @@
   "author": "Aldwin Benitez",
   "license": "ISC",
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
     "babel-preset-env": "^1.7.0",
     "html-webpack-plugin": "^3.2.0",
     "webpack": "^4.41.2",
@@ -20,6 +20,9 @@
     "webpack-dev-server": "^3.9.0"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.6.0",
+    "axios": "^0.19.0",
+    "babel-loader": "^8.0.6",
     "babel-polyfill": "^6.26.0"
   }
 }
