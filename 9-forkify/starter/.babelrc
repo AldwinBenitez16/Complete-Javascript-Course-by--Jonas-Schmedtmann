@@ -1,0 +1,14 @@
+{
+    // preset is a collection of code-transform plugins
+    "preset": [
+        // environment
+        "env", {
+            "target": {
+                "browsers": [
+                    "last 5 versions",
+                    "ie >= 8"
+                ]
+            }
+        }
+    ]
+}

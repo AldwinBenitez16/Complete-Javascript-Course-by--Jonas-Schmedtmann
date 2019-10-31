@@ -18,5 +18,19 @@ module.exports = {
             filename: 'index.html',
             template: './src/index.html'
         })
-    ]
+    ],
+    module: {
+        rules: [
+            {
+                // Look at all files and test if they are js files
+                test: /\.js$/, 
+                exclude: /node_modules/, // exclude the node_modules file
+                // for js files
+                use: {
+                    // use the babel loader for the js files
+                    loader: 'babel-loader'
+                }
+            }
+        ]
+    }
 }
