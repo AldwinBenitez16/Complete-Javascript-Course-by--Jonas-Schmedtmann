@@ -1,4 +1,4 @@
-import { elements, renderLoader, clearLoader } from './views/base';
+import { elements, renderLoader, clearLoader, elementStrings } from './views/base';
 import * as searchView from './views/searchView';
 
 import Search from './models/Search';
@@ -32,4 +32,12 @@ const controlSearch = async () => {
 elements.searchForm.addEventListener('submit', e => {
     e.preventDefault();
     controlSearch();
+});
+
+elements.searchResPages.addEventListener('click', e => {
+    const btn = e.target.closest('.btn-inline');
+    if(btn) {
+        const goToPage = btn.dataset.goto;
+        console.log(goToPage);
+    }
 });
