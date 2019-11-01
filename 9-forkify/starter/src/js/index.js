@@ -1,11 +1,15 @@
-import { elements, renderLoader, clearLoader, elementStrings } from './views/base';
-import * as searchView from './views/searchView';
-
 import Search from './models/Search';
+import Recipe from './models/Recipe';
+import * as searchView from './views/searchView';
+import { elements, renderLoader, clearLoader, elementStrings } from './views/base';
+
 
 // will store all neccesary info ex. recipes result
 const state = {};
 
+/**
+ * SEARCH CONTROLLER
+ */
 const controlSearch = async () => {
     // 1) Get query from view
     const query = searchView.getInput(); // TODO
@@ -42,3 +46,14 @@ elements.searchResPages.addEventListener('click', e => {
         searchView.renderResults(state.search.result, goToPage);
     }
 });
+
+/**
+ * RECIPE CONTROLLER
+ */
+
+const controlRecipe = () => {
+    const id = window.location.hash;
+    console.log(id);
+};
+
+ window.addEventListener('hashchange', controlRecipe);
