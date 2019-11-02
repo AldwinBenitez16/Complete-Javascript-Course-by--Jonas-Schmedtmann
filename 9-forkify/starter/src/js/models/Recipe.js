@@ -87,4 +87,13 @@ export default class Recipe {
         });
         this.ingredients = newIngredients;
     }
+
+    updateServings (type) {
+        // Update servings
+        const newServings = type === 'dec' ? this.servings - 1 : this.servings + 1;
+
+        // Update Ingredients
+    
+        this.servings = newServings;
+    }
 };
