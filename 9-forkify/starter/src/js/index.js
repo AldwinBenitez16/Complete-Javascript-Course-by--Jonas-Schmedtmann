@@ -3,6 +3,7 @@ import Recipe from './models/Recipe';
 import List from './models/List';
 import * as searchView from './views/searchView';
 import * as recipeView from './views/recipeView';
+import * as ListView from './views/listView';
 import { elements, renderLoader, clearLoader } from './views/base';
 
 
@@ -58,6 +59,21 @@ elements.searchResPages.addEventListener('click', e => {
  * RECIPE CONTROLLER
  */
 
+/**
+ * LIST CONTROLLER
+ */
+
+const controlList = () => {
+    // Create a new list IF there is none yet
+    if(!state.list) state.list = new List();
+
+    // Add each ingredient to the list
+    state.recipe.ingredients.forEach(el => {
+        const item = state.list.addItem(el.count, el.unit, el.ingredient);
+        ListView.renderItem(item);
+    });
+}
+
 const controlRecipe = async () => {
     const id = window.location.hash.replace('#', '');
 
@@ -102,11 +118,11 @@ elements.recipe.addEventListener('click', e => {
             state.recipe.updateServings('dec');
             recipeView.updateServingsIngredients(state.recipe);
         }
-    } else if('.btn-increase, .btn-increase *') {
+    } else if(e.target.matches('.btn-increase, .btn-increase *')) {
         // Increase button is clicked
         state.recipe.updateServings('inc');
         recipeView.updateServingsIngredients(state.recipe);
+    } else if(e.target.matches('.recipe__btn--add','.recipe__btn--add *')) {
+        controlList();
     }
 });
-
-window.l = new List();
